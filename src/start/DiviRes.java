@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DiviRes {
 
-    public static String dividir(int dividendo, int divisor) {
+    public static String dividir(float dividendo, float divisor) {
 
         if (divisor == 0) {
             return "Error: Dividir por cero no es posible. ";
@@ -14,23 +14,20 @@ public class DiviRes {
             return "Cociente: 0, Residuo: 0";
         }
 
-        boolean siCocienteNegativo = false;
-        if ((dividendo < 0 & divisor > 0) | (dividendo > 0 & divisor < 0)) {
-            siCocienteNegativo = true;
-        }
+        boolean siCocienteNegativo = (dividendo < 0 & divisor > 0) | (dividendo > 0 & divisor < 0);
 
-        int absDividendo = dividendo;
+        float absDividendo = dividendo;
         if (absDividendo < 0) {
-            absDividendo = 0 - absDividendo;
+            absDividendo = - absDividendo;
         }
 
-        int absDivisor = divisor;
+        float absDivisor = divisor;
         if (absDivisor < 0) {
-            absDivisor = 0 - absDivisor;
+            absDivisor = - absDivisor;
         }
 
-        int cociente = 0;
-        int residuo = absDividendo;
+        float cociente = 0;
+        float residuo = absDividendo;
 
         while (residuo >= absDivisor) {
             residuo = residuo - absDivisor;
@@ -38,11 +35,11 @@ public class DiviRes {
         }
 
         if (siCocienteNegativo) {
-            cociente = 0 - cociente;
+            cociente = - cociente;
         }
 
         if (dividendo < 0 && residuo != 0) {
-            residuo = 0 - residuo;
+            residuo = - residuo;
         }
 
         return "Cociente: " + cociente + ", Residuo: " + residuo;
@@ -54,14 +51,15 @@ public class DiviRes {
         System.out.println(" Calculadora de División usando solo la resta ");
 
         System.out.println(" Ingresa el dividendo (número a dividir): ");
-        int numDividendo = entrada.nextInt();
+        float numDividendo = entrada.nextFloat();
 
         System.out.println(" Ingresa el divisor (número por el que dividir): ");
-        int numDivisor = entrada.nextInt();
+        float numDivisor = entrada.nextFloat();
 
-        String resultado = dividir(numDividendo, numDivisor);
+        String resultado = dividir(numDividendo,
+                numDivisor);
 
-        System.out.println( "Resultado de la división: " + resultado);
+        System.out.println( "Resultado de la división : " + resultado);
 
         entrada.close();
     }
