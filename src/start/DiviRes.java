@@ -7,23 +7,23 @@ public class DiviRes {
     public static String dividir(float dividendo, float divisor) {
 
         if (divisor == 0) {
-            return "Error: Dividir por cero no es posible. ";
+            return "error no se puede dividir por 0 ";
         }
 
         if (dividendo == 0) {
-            return "Cociente: 0, Residuo: 0";
+            return "cociente: 0, residuo: 0";
         }
 
         boolean siCocienteNegativo = (dividendo < 0 & divisor > 0) | (dividendo > 0 & divisor < 0);
 
         float absDividendo = dividendo;
         if (absDividendo < 0) {
-            absDividendo = - absDividendo;
+            absDividendo = -absDividendo;
         }
 
         float absDivisor = divisor;
         if (absDivisor < 0) {
-            absDivisor = - absDivisor;
+            absDivisor = -absDivisor;
         }
 
         float cociente = 0;
@@ -35,32 +35,34 @@ public class DiviRes {
         }
 
         if (siCocienteNegativo) {
-            cociente = - cociente;
+            cociente = -cociente;
         }
 
         if (dividendo < 0 && residuo != 0) {
-            residuo = - residuo;
+            residuo = -residuo;
         }
 
-        return "Cociente: " + cociente + ", Residuo: " + residuo;
+        return "cociente: " + cociente + ", residuo: " + residuo;
+
+
     }
-
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
 
-        System.out.println(" Calculadora de División usando solo la resta ");
+        Scanner numero = new Scanner(System.in);
 
-        System.out.println(" Ingresa el dividendo (número a dividir): ");
-        float numDividendo = entrada.nextFloat();
+        System.out.println(" calculadora de división usando solo la resta ");
 
-        System.out.println(" Ingresa el divisor (número por el que dividir): ");
-        float numDivisor = entrada.nextFloat();
+        System.out.println(" ingrese el numero a dividir : ");
+        float numDividendo = numero.nextFloat();
+
+        System.out.println(" ingrese el numero divisor : ");
+        float numDivisor = numero.nextFloat();
 
         String resultado = dividir(numDividendo,
                 numDivisor);
 
         System.out.println( "Resultado de la división : " + resultado);
 
-        entrada.close();
+        numero.close();
     }
 }
