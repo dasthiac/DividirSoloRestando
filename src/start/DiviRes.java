@@ -42,7 +42,7 @@ public class DiviRes {
             residuo = -residuo;
         }
 
-        return "cociente: " + cociente + ", residuo: " + residuo;
+        return " resultado: " + cociente + ", residuo: " + residuo;
 
 
     }
