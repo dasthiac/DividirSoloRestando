@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DiviRes {
 
-    public static String dividir(float dividendo, float divisor) {
+    public static String dividir(double dividendo, double divisor) {
 
         if (divisor == 0) {
             return "error no se puede dividir por 0 ";
@@ -16,18 +16,18 @@ public class DiviRes {
 
         boolean siCocienteNegativo = (dividendo < 0 & divisor > 0) | (dividendo > 0 & divisor < 0);
 
-        float absDividendo = dividendo;
+        double absDividendo = dividendo;
         if (absDividendo < 0) {
             absDividendo = -absDividendo;
         }
 
-        float absDivisor = divisor;
+        double absDivisor = divisor;
         if (absDivisor < 0) {
             absDivisor = -absDivisor;
         }
 
-        float cociente = 0;
-        float residuo = absDividendo;
+        double cociente = 0;
+        double residuo = absDividendo;
 
         while (residuo >= absDivisor) {
             residuo = residuo - absDivisor;
@@ -53,10 +53,10 @@ public class DiviRes {
         System.out.println(" calculadora de división usando solo la resta ");
 
         System.out.println(" ingrese el numero a dividir : ");
-        float numDividendo = numero.nextFloat();
+        double numDividendo = numero.nextDouble();
 
         System.out.println(" ingrese el numero divisor : ");
-        float numDivisor = numero.nextFloat();
+        double numDivisor = numero.nextDouble();
 
         String resultado = dividir(numDividendo,
                 numDivisor);
